@@ -3,11 +3,11 @@
  "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
  "http://www.freedesktop.org/standards/PolicyKit/1.0/policyconfig.dtd">
 <policyconfig>
-  <vendor>Vanilla OS</vendor>
-  <vendor_url>https://www.vanillaos.org/</vendor_url>
+  <vendor>Yoyo OS</vendor>
+  <vendor_url>https://www.yoyoos.org/</vendor_url>
   <icon_name>package-x-generic</icon_name>
 
-  <action id="org.vanillaos.vso.check_updates">
+  <action id="org.yoyoos.yso.check_updates">
     <description>Check for system package updates</description>
     <message>Authentication is required to check for updates</message>
     <icon_name>package-x-generic</icon_name>
@@ -16,7 +16,7 @@
       <allow_inactive>auth_admin</allow_inactive>
       <allow_active>auth_admin_keep</allow_active>
     </defaults>
-    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/vso</annotate>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/yso</annotate>
     <annotate key="org.freedesktop.policykit.exec.argv1">update-check</annotate>
   </action>
 </policyconfig>

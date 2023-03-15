@@ -5,15 +5,15 @@ package cmd
 		Mirko Brombin <send@mirko.pm>
 		Pietro di Caprio <pietro@fabricators.ltd>
 	Copyright: 2023
-	Description: VSO is a utility which allows you to perform maintenance
-	tasks on your Vanilla OS installation.
+	Description: YSO is a utility which allows you to perform maintenance
+	tasks on your Yoyo OS installation.
 */
 
 import (
 	"fmt"
 
 	"github.com/spf13/cobra"
-	"github.com/vanilla-os/vso/core"
+	"github.com/yoyo-os/yso/core"
 )
 
 func createTaskUsage(*cobra.Command) error {
@@ -21,7 +21,7 @@ func createTaskUsage(*cobra.Command) error {
 	  Create a new task
 
 Usage:
-  	vso create-task [flags] [arguments]
+  	yso create-task [flags] [arguments]
 
 Flags:
 	--help/-h		show this message
@@ -52,8 +52,8 @@ Arguments:
 	--on-device-disconnect	execute the task when a device is disconnected
 
 Examples:
-	vso create-task -n "Battery fully charged" -d "notify at full charge" -c "notify-send 'Battery fully charged'" --on-full-battery
-	vso create-task -n "Launch-terminal" -d "Launch terminal at Settings launch" -c "kgx" --on-process gnome-control-center
+	yso create-task -n "Battery fully charged" -d "notify at full charge" -c "notify-send 'Battery fully charged'" --on-full-battery
+	yso create-task -n "Launch-terminal" -d "Launch terminal at Settings launch" -c "kgx" --on-process gnome-control-center
 `)
 	return nil
 }

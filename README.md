@@ -1,7 +1,7 @@
 <div align="center">
-  <img src="vso-logo.svg" height="120">
-  <h1 align="center">Vanilla System Operator</h1>
-  <p align="center">VSO is a utility which allows you to perform maintenance tasks on your Vanilla OS installation.</p>
+  <img src="yso-logo.svg" height="120">
+  <h1 align="center">Yoyo System Operator</h1>
+  <p align="center">YSO is a utility which allows you to perform maintenance tasks on your Yoyo OS installation.</p>
 </div>
 
 <br/>
@@ -10,13 +10,13 @@
 
 ```
 Usage:
-	vso [flags] [command] [arguments]
+	yso [flags] [command] [arguments]
 
 Global Flags:
 	-h, --help            	Show this help message and exit
 
 Commands:
-	config              	Configure VSO
+	config              	Configure YSO
 	create-task             Create a new task
 	delete-task             Delete a task
 	developer-program   	Join the developers program
@@ -29,7 +29,3 @@ Commands:
 ```
 
 - _NOTE: Developer's program is a proposed feature for the future._
-
-## Docs
-
-The official **documentation and manpage** for `vso` are available at <https://documentation.vanillaos.org/docs/vso/>.

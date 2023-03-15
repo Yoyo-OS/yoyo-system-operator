@@ -834,7 +834,7 @@ func (l *tomlLexer) lexTableKey() tomlLexStateFn {
 		l.emit(tokenDoubleLeftBracket)
 		return l.lexInsideTableArrayKey
 	}
-	// vanilla table key
+	// yoyo table key
 	l.emit(tokenLeftBracket)
 	return l.lexInsideTableKey
 }

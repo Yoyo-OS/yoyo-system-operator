@@ -5,8 +5,8 @@ package settings
 		Mirko Brombin <send@mirko.pm>
 		Pietro di Caprio <pietro@fabricators.ltd>
 	Copyright: 2023
-	Description: VSO is an utility which allows you to perform maintenance
-	tasks on your Vanilla OS installation.
+	Description: YSO is an utility which allows you to perform maintenance
+	tasks on your Yoyo OS installation.
 */
 
 import (
@@ -26,7 +26,7 @@ type UpdatesConfig struct {
 var Cnf *Config
 
 func init() {
-	viper.AddConfigPath("/etc/vso/")
+	viper.AddConfigPath("/etc/yso/")
 	viper.AddConfigPath("config/")
 	viper.SetConfigName("config")
 	viper.SetConfigType("json")

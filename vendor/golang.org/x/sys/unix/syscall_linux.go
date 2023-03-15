@@ -718,7 +718,7 @@ func (sa *SockaddrALG) sockaddr() (unsafe.Pointer, _Socklen, error) {
 	return unsafe.Pointer(&sa.raw), SizeofSockaddrALG, nil
 }
 
-// SockaddrVM implements the Sockaddr interface for AF_VSOCK type sockets.
+// SockaddrVM implements the Sockaddr interface for AF_YSOCK type sockets.
 // SockaddrVM provides access to Linux VM sockets: a mechanism that enables
 // bidirectional communication between a hypervisor and its guest virtual
 // machines.
@@ -735,7 +735,7 @@ type SockaddrVM struct {
 }
 
 func (sa *SockaddrVM) sockaddr() (unsafe.Pointer, _Socklen, error) {
-	sa.raw.Family = AF_VSOCK
+	sa.raw.Family = AF_YSOCK
 	sa.raw.Port = sa.Port
 	sa.raw.Cid = sa.CID
 	sa.raw.Flags = sa.Flags
@@ -1064,7 +1064,7 @@ func anyToSockaddr(fd int, rsa *RawSockaddrAny) (Sockaddr, error) {
 			return sa, nil
 		}
 
-	case AF_VSOCK:
+	case AF_YSOCK:
 		pp := (*RawSockaddrVM)(unsafe.Pointer(rsa))
 		sa := &SockaddrVM{
 			CID:   pp.Cid,

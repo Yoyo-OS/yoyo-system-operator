@@ -1,4 +1,4 @@
-module github.com/vanilla-os/vso
+module github.com/yoyo-os/yso
 
 go 1.18
 

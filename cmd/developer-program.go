@@ -5,8 +5,8 @@ package cmd
 		Mirko Brombin <send@mirko.pm>
 		Pietro di Caprio <pietro@fabricators.ltd>
 	Copyright: 2023
-	Description: VSO is a utility which allows you to perform maintenance
-	tasks on your Vanilla OS installation.
+	Description: YSO is a utility which allows you to perform maintenance
+	tasks on your Yoyo OS installation.
 */
 
 import (
@@ -20,13 +20,13 @@ func devProgramUsage(*cobra.Command) error {
 	Join the developers program
 
 Usage:
-  	vso developer-program [flags]
+  	yso developer-program [flags]
 
 Flags:
 	--help/-h		show this message
 
 Examples:
-	vso developer-program
+	yso developer-program
 `)
 	return nil
 }

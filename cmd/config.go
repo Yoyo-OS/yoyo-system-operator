@@ -5,24 +5,24 @@ package cmd
 		Mirko Brombin <send@mirko.pm>
 		Pietro di Caprio <pietro@fabricators.ltd>
 	Copyright: 2023
-	Description: VSO is a utility which allows you to perform maintenance
-	tasks on your Vanilla OS installation.
+	Description: YSO is a utility which allows you to perform maintenance
+	tasks on your Yoyo OS installation.
 */
 
 import (
 	"fmt"
 
 	"github.com/spf13/cobra"
-	"github.com/vanilla-os/vso/core"
-	"github.com/vanilla-os/vso/settings"
+	"github.com/yoyo-os/yso/core"
+	"github.com/yoyo-os/yso/settings"
 )
 
 func configUsage(*cobra.Command) error {
 	fmt.Print(`Description: 
-	Configure VSO
+	Configure YSO
 
 Usage:
-  	vso config [flags] [command]
+  	yso config [flags] [command]
 
 Flags:
 	--help/-h		show this message
@@ -34,8 +34,8 @@ Commands:
 	set <key> <value>	set a configuration value
 
 Examples:
-	vso config get updates.schedule
-	vso config set updates.schedule weekly
+	yso config get updates.schedule
+	yso config set updates.schedule weekly
 `)
 	return nil
 }
@@ -43,7 +43,7 @@ Examples:
 func NewConfigCommand() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "config",
-		Short: "Configure VSO",
+		Short: "Configure YSO",
 		RunE:  config,
 	}
 	cmd.SetUsageFunc(configUsage)

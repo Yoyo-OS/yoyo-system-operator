@@ -5,15 +5,15 @@ package main
 		Mirko Brombin <send@mirko.pm>
 		Pietro di Caprio <pietro@fabricators.ltd>
 	Copyright: 2023
-	Description: VSO is a utility which allows you to perform maintenance
-	tasks on your Vanilla OS installation.
+	Description: YSO is a utility which allows you to perform maintenance
+	tasks on your Yoyo OS installation.
 */
 
 import (
 	"fmt"
 
 	"github.com/spf13/cobra"
-	"github.com/vanilla-os/vso/cmd"
+	"github.com/yoyo-os/yso/cmd"
 )
 
 var (
@@ -22,13 +22,13 @@ var (
 
 func help(cmd *cobra.Command, args []string) {
 	fmt.Println(`Usage:
-	vso [flags] [command] [arguments]
+	yso [flags] [command] [arguments]
 
 Global Flags:
 	-h, --help            	Show this help message and exit
 
 Commands:
-	config              	Configure VSO
+	config              	Configure YSO
 	create-task             Create a new task
 	delete-task             Delete a task
 	developer-program   	Join the developers program
@@ -40,16 +40,16 @@ Commands:
 	version             	Show version and exit`)
 }
 
-func newVsoCommand() *cobra.Command {
+func newYsoCommand() *cobra.Command {
 	return &cobra.Command{
-		Use:     "vso",
-		Short:   "VSO is an utility which allows you to perform maintenance tasks on your Vanilla OS installation.",
+		Use:     "yso",
+		Short:   "YSO is an utility which allows you to perform maintenance tasks on your Yoyo OS installation.",
 		Version: Version,
 	}
 }
 
 func main() {
-	rootCmd := newVsoCommand()
+	rootCmd := newYsoCommand()
 
 	rootCmd.AddCommand(cmd.NewCreateTaskCommand())
 	rootCmd.AddCommand(cmd.NewDeleteTaskCommand())

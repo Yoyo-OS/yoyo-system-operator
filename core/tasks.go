@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	TasksLocation = "/.config/vso/tasks"
+	TasksLocation = "/.config/yso/tasks"
 	CurrentQueue  = []Task{}
 )
 
@@ -37,7 +37,7 @@ func ListTasksDetailed() ([]Task, error) {
 
 	var tasks []Task
 	for _, name := range list {
-		name = name[:len(name)-len(".vsotask")]
+		name = name[:len(name)-len(".ysotask")]
 		task, err := LoadTaskByUnitName(name)
 		if err != nil {
 			return nil, err
@@ -76,7 +76,7 @@ func ListTasksJson() (string, error) {
 
 // DeleteTaskByUnitName deletes a task
 func DeleteTaskByUnitName(name string) error {
-	err := os.Remove(getUserTasksLocation() + "/" + strings.ToLower(name) + ".vsotask")
+	err := os.Remove(getUserTasksLocation() + "/" + strings.ToLower(name) + ".ysotask")
 	if err != nil {
 		return fmt.Errorf("task does not exist with unit file name: %s", name)
 	}
@@ -163,7 +163,7 @@ func runTasksRotator(cChecks *CommonChecks, event string) error {
 
 // saveTasksRotatorRunning saves that the rotator is running
 func saveTasksRotatorRunning() error {
-	err := os.WriteFile("/tmp/vso-rotator-running", []byte("true"), 0644)
+	err := os.WriteFile("/tmp/yso-rotator-running", []byte("true"), 0644)
 	if err != nil {
 		return err
 	}
@@ -173,7 +173,7 @@ func saveTasksRotatorRunning() error {
 
 // removeTasksRotatorRunning removes that the rotator is running
 func removeTasksRotatorRunning() error {
-	err := os.Remove("/tmp/vso-rotator-running")
+	err := os.Remove("/tmp/yso-rotator-running")
 	if err != nil {
 		return err
 	}
@@ -183,7 +183,7 @@ func removeTasksRotatorRunning() error {
 
 // isTasksRotatorIsRunning checks if the rotator is running
 func isTasksRotatorIsRunning() bool {
-	_, err := os.Stat("/tmp/vso-rotator-running")
+	_, err := os.Stat("/tmp/yso-rotator-running")
 	running := !os.IsNotExist(err)
 
 	if running {
@@ -237,8 +237,8 @@ func TaskHasRunFail(name string) bool {
 
 // LoadTaskByUnitName loads a task
 func LoadTaskByUnitName(name string) (*Task, error) {
-	if !strings.HasSuffix(name, ".vsotask") {
-		name = name + ".vsotask"
+	if !strings.HasSuffix(name, ".ysotask") {
+		name = name + ".ysotask"
 	}
 
 	file, err := os.Open(getUserTasksLocation() + "/" + name)
@@ -258,7 +258,7 @@ func LoadTaskByUnitName(name string) (*Task, error) {
 	return &t, nil
 }
 
-// makeTasksRotatorAutostart creates an autostart file for vso if it doesn't exist
+// makeTasksRotatorAutostart creates an autostart file for yso if it doesn't exist
 func makeTasksRotatorAutostart() error {
 	curUser, err := getRealUser()
 	if err != nil {
@@ -267,10 +267,10 @@ func makeTasksRotatorAutostart() error {
 	}
 
 	autostartFolder := "/home/" + curUser + "/.config/autostart"
-	autostartFile := autostartFolder + "/vso.desktop"
+	autostartFile := autostartFolder + "/yso.desktop"
 
 	if _, err := os.Stat(autostartFile); os.IsNotExist(err) {
-		fmt.Println("Creating vso autostart file for user in " + autostartFile)
+		fmt.Println("Creating yso autostart file for user in " + autostartFile)
 
 		err = os.MkdirAll(autostartFolder, 0755)
 		if err != nil {
@@ -283,7 +283,7 @@ func makeTasksRotatorAutostart() error {
 		}
 		defer file.Close()
 
-		_, err = file.WriteString("[Desktop Entry]\nType=Application\nName=vso\nExec=/usr/bin/vso rotate-tasks\n")
+		_, err = file.WriteString("[Desktop Entry]\nType=Application\nName=yso\nExec=/usr/bin/yso rotate-tasks\n")
 		if err != nil {
 			return err
 		}

@@ -563,7 +563,7 @@ const (
 	DLT_USER7                      = 0x9a
 	DLT_USER8                      = 0x9b
 	DLT_USER9                      = 0x9c
-	DLT_VSOCK                      = 0x10f
+	DLT_YSOCK                      = 0x10f
 	DLT_WATTSTOPPER_DLM            = 0x107
 	DLT_WIHART                     = 0xdf
 	DLT_WIRESHARK_UPPER_PDU        = 0xfc

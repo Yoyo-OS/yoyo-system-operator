@@ -7,12 +7,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/vanilla-os/vso/settings"
+	"github.com/yoyo-os/yso/settings"
 )
 
 var (
-	checkLogPath       = "/var/log/vso-check.log"
-	firstSetupDonePath = "/etc/vanilla-first-setup-done"
+	checkLogPath       = "/var/log/yso-check.log"
+	firstSetupDonePath = "/etc/yoyo-first-setup-done"
 	abrootLockPath     = "/tmp/abroot-transactions.lock"
 )
 
@@ -25,7 +25,7 @@ func AreABRootTransactionsLocked() bool {
 }
 
 // NeedUpdate checks if the system needs to be updated according to the latest
-// update log compared to the VSO configuation
+// update log compared to the YSO configuation
 func NeedUpdate() bool {
 	if AreABRootTransactionsLocked() {
 		fmt.Println("ABRoot transactions are currently locked. Skipping update check.")
@@ -113,9 +113,9 @@ func HasUpdates() (bool, []string, error) {
 	return true, list_updates, nil
 }
 func okToUpdate() bool {
-	// check vso logs for previous run
+	// check yso logs for previous run
 	if _, err := os.Stat(checkLogPath); os.IsNotExist(err) {
-		// vso has never run, check if first-setup has been done
+		// yso has never run, check if first-setup has been done
 		if _, err := os.Stat(firstSetupDonePath); os.IsNotExist(err) {
 			// first setup has not completed. don't try to update
 			return false
@@ -188,7 +188,7 @@ func TryUpdate(force bool) error {
 		return nil
 	}
 
-	if os.Getenv("VSO_DEBUG_SMARTUPDATE") != "" {
+	if os.Getenv("YSO_DEBUG_SMARTUPDATE") != "" {
 		fmt.Println("Smart update is in debug mode, skipping update.")
 		return nil
 	}

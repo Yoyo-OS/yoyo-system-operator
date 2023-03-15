@@ -5,8 +5,8 @@ package cmd
 		Mirko Brombin <send@mirko.pm>
 		Pietro di Caprio <pietro@fabricators.ltd>
 	Copyright: 2022
-	Description: VSO is a utility which allows you to perform maintenance
-	tasks on your Vanilla OS installation.
+	Description: YSO is a utility which allows you to perform maintenance
+	tasks on your Yoyo OS installation.
 */
 
 import (
@@ -15,7 +15,7 @@ import (
 	"strings"
 
 	"github.com/spf13/cobra"
-	"github.com/vanilla-os/vso/core"
+	"github.com/yoyo-os/yso/core"
 )
 
 func checkUpdateUsage(*cobra.Command) error {
@@ -23,14 +23,14 @@ func checkUpdateUsage(*cobra.Command) error {
 	Check for system updates
 
 Usage:
-  	vso update-check [options]
+  	yso update-check [options]
 
 Options:
 	--help/-h		show this message
 	--as-exit-code		return 0 if no updates are available, 1 otherwise
 
 Examples:
-	vso update-check
+	yso update-check
 `)
 	return nil
 }

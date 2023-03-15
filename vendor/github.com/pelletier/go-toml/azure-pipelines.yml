@@ -50,7 +50,7 @@ stages:
       displayName: "Install Go 1.16"
       inputs:
         version: "1.16"
-    - script: echo "##vso[task.setvariable variable=PATH]${PATH}:/home/vsts/go/bin/"
+    - script: echo "##yso[task.setvariable variable=PATH]${PATH}:/home/vsts/go/bin/"
     - task: Bash@3
       inputs:
         filePath: './benchmark.sh'

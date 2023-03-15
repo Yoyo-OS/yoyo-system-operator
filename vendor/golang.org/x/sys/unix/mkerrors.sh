@@ -75,7 +75,7 @@ includes_Darwin='
 #include <sys/utsname.h>
 #include <sys/wait.h>
 #include <sys/xattr.h>
-#include <sys/vsock.h>
+#include <sys/ysock.h>
 #include <net/bpf.h>
 #include <net/if.h>
 #include <net/if_types.h>

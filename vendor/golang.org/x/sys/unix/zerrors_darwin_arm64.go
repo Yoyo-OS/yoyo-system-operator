@@ -50,7 +50,7 @@ const (
 	AF_UNIX                                 = 0x1
 	AF_UNSPEC                               = 0x0
 	AF_UTUN                                 = 0x26
-	AF_VSOCK                                = 0x28
+	AF_YSOCK                                = 0x28
 	ALTWERASE                               = 0x200
 	ATTR_BIT_MAP_COUNT                      = 0x5
 	ATTR_CMN_ACCESSMASK                     = 0x20000

@@ -59,7 +59,7 @@ const (
 	AF_TIPC                                     = 0x1e
 	AF_UNIX                                     = 0x1
 	AF_UNSPEC                                   = 0x0
-	AF_VSOCK                                    = 0x28
+	AF_YSOCK                                    = 0x28
 	AF_WANPIPE                                  = 0x19
 	AF_X25                                      = 0x9
 	AF_XDP                                      = 0x2c
@@ -138,7 +138,7 @@ const (
 	ARPHRD_TUNNEL                               = 0x300
 	ARPHRD_TUNNEL6                              = 0x301
 	ARPHRD_VOID                                 = 0xffff
-	ARPHRD_VSOCKMON                             = 0x33a
+	ARPHRD_YSOCKMON                             = 0x33a
 	ARPHRD_X25                                  = 0x10f
 	AUTOFS_SUPER_MAGIC                          = 0x187
 	B0                                          = 0x0

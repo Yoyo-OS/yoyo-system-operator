@@ -1,5 +1,5 @@
 /obj-x86_64-linux-gnu
 /debian/.debhelper
-/debian/vanilla-system-operator
+/debian/yoyo-system-operator
 /debian/debhelper-build-stamp
-/debian/vanilla-system-operator.substvars
+/debian/yoyo-system-operator.substvars

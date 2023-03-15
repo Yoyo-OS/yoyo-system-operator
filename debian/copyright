@@ -1,9 +1,9 @@
 Format: http://dep.debian.net/deps/dep5
-Upstream-Name: Vanilla OS First Setup
-Source: https://github.com/vanilla-os/
+Upstream-Name: Yoyo OS First Setup
+Source: https://github.com/yoyo-os/
 
 Files: *
-Copyright: 2023 Vanilla-OS contributors
+Copyright: 2023 Yoyo-OS contributors
 License: GPL-3.0
 
 License: GPL-3.0

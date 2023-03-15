@@ -1,17 +1,17 @@
-Source: vanilla-system-operator
+Source: yoyo-system-operator
 Section: devel
 Priority: extra
-Maintainer: Mirko Brombin <send@mirko.pm>
-Uploaders: Mirko Brombin <send@mirko.pm>
+Maintainer: Yoyo <admin@yzzi.icu>
+Uploaders: Yoyo <admin@yzzi.icu>
 Build-Depends: debhelper (>= 9),
                dh-golang,
                golang-go
 Standards-Version: 3.9.6
-Homepage: https://github.com/vanilla-os/vanilla-system-operator
-Vcs-Browser: https://github.com/vanilla-os/vanilla-system-operator
-Vcs-Git: git://github.com/vanilla-os/vanilla-system-operator.git
+Homepage: https://github.com/yoyo-os/yoyo-system-operator
+Vcs-Browser: https://github.com/yoyo-os/yoyo-system-operator
+Vcs-Git: git://github.com/yoyo-os/yoyo-system-operator.git
 
-Package: vanilla-system-operator
+Package: yoyo-system-operator
 Architecture: all
 Depends: ${shlibs:Depends},
          ${misc:Depends},
@@ -20,4 +20,4 @@ Depends: ${shlibs:Depends},
          ifstat,
          abroot
 Built-Using: ${misc:Built-Using}
-Description: VSO is an utility which allows you to perform maintenance tasks on your Vanilla OS installation.
+Description: YSO is an utility which allows you to perform maintenance tasks on your Yoyo OS installation.

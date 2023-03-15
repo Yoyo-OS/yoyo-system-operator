@@ -137,7 +137,7 @@ func (t *Task) ShouldRun(cChecks *CommonChecks, event string) bool {
 	} else if t.OnConditionCommand != "" {
 		cmd := exec.Command("sh", "-c", t.OnConditionCommand)
 		cmd.Env = os.Environ()
-		cmd.Env = append(cmd.Env, "VSO_TASK_NAME="+t.Name)
+		cmd.Env = append(cmd.Env, "YSO_TASK_NAME="+t.Name)
 		err := cmd.Run()
 		if err == nil {
 			res = true
@@ -256,7 +256,7 @@ func (t *Task) Target() string {
 	return ""
 }
 
-// Save saves a task in a vsotask file
+// Save saves a task in a ysotask file
 func (t *Task) Save() error {
 	t.Slug = slugify(t.Name)
 
@@ -268,7 +268,7 @@ func (t *Task) Save() error {
 		t.Slug = t.AfterTaskFailure + "-" + t.Slug
 	}
 
-	file, err := os.Create(getUserTasksLocation() + "/" + t.Slug + ".vsotask")
+	file, err := os.Create(getUserTasksLocation() + "/" + t.Slug + ".ysotask")
 	if err != nil {
 		return err
 	}
@@ -286,12 +286,12 @@ func (t *Task) Save() error {
 
 // Unit returns the unit name of a task
 func (t *Task) Unit() string {
-	return t.Name + ".vsotask"
+	return t.Name + ".ysotask"
 }
 
 // Delete deletes a task
 func (t *Task) Delete() error {
-	err := os.Remove(getUserTasksLocation() + "/" + t.Name + ".vsotask")
+	err := os.Remove(getUserTasksLocation() + "/" + t.Name + ".ysotask")
 	if err != nil {
 		return err
 	}
@@ -306,7 +306,7 @@ func (t *Task) SaveLastSuccess() error {
 	t.RemoveRunning()
 	t.RemoveLastFailure()
 
-	file, err := os.Create("/tmp/" + t.Slug + ".vsotask.success")
+	file, err := os.Create("/tmp/" + t.Slug + ".ysotask.success")
 	if err != nil {
 		return err
 	}
@@ -317,7 +317,7 @@ func (t *Task) SaveLastSuccess() error {
 		return err
 	}
 
-	os.Remove("/tmp/" + t.Name + ".vsotask.failure")
+	os.Remove("/tmp/" + t.Name + ".ysotask.failure")
 
 	return nil
 }
@@ -326,7 +326,7 @@ func (t *Task) SaveLastSuccess() error {
 func (t *Task) RemoveLastSuccess() error {
 	fmt.Println("| Removing last success status")
 
-	err := os.Remove("/tmp/" + t.Slug + ".vsotask.success")
+	err := os.Remove("/tmp/" + t.Slug + ".ysotask.success")
 	if err != nil {
 		return err
 	}
@@ -336,7 +336,7 @@ func (t *Task) RemoveLastSuccess() error {
 
 // WasSuccessful checks if a task was successful
 func (t *Task) WasSuccessful() bool {
-	_, err := os.Stat("/tmp/" + t.Slug + ".vsotask.success")
+	_, err := os.Stat("/tmp/" + t.Slug + ".ysotask.success")
 	return err == nil
 }
 
@@ -347,7 +347,7 @@ func (t *Task) SaveLastFailure() error {
 	t.RemoveRunning()
 	t.RemoveLastSuccess()
 
-	file, err := os.Create("/tmp/" + t.Slug + ".vsotask.failure")
+	file, err := os.Create("/tmp/" + t.Slug + ".ysotask.failure")
 	if err != nil {
 		return err
 	}
@@ -358,7 +358,7 @@ func (t *Task) SaveLastFailure() error {
 		return err
 	}
 
-	os.Remove("/tmp/" + t.Slug + ".vsotask.success")
+	os.Remove("/tmp/" + t.Slug + ".ysotask.success")
 
 	return nil
 }
@@ -367,7 +367,7 @@ func (t *Task) SaveLastFailure() error {
 func (t *Task) RemoveLastFailure() error {
 	fmt.Println("| Removing last failure status")
 
-	err := os.Remove("/tmp/" + t.Slug + ".vsotask.failure")
+	err := os.Remove("/tmp/" + t.Slug + ".ysotask.failure")
 	if err != nil {
 		return err
 	}
@@ -379,7 +379,7 @@ func (t *Task) RemoveLastFailure() error {
 func (t *Task) SaveRunning() error {
 	fmt.Println("| Saving running status")
 
-	file, err := os.Create("/tmp/" + t.Slug + ".vsotask.running")
+	file, err := os.Create("/tmp/" + t.Slug + ".ysotask.running")
 	if err != nil {
 		return err
 	}
@@ -395,7 +395,7 @@ func (t *Task) SaveRunning() error {
 
 // IsRunning checks if a task is running
 func (t *Task) IsRunning() bool {
-	_, err := os.Stat("/tmp/" + t.Slug + ".vsotask.running")
+	_, err := os.Stat("/tmp/" + t.Slug + ".ysotask.running")
 	return err == nil
 }
 
@@ -403,7 +403,7 @@ func (t *Task) IsRunning() bool {
 func (t *Task) RemoveRunning() error {
 	fmt.Println("| Removing running status")
 
-	err := os.Remove("/tmp/" + t.Slug + ".vsotask.running")
+	err := os.Remove("/tmp/" + t.Slug + ".ysotask.running")
 	if err != nil {
 		return err
 	}
@@ -413,7 +413,7 @@ func (t *Task) RemoveRunning() error {
 
 // WasFailure checks if a task was a failure
 func (t *Task) WasFailure() bool {
-	_, err := os.Stat("/tmp/" + t.Slug + ".vsotask.failure")
+	_, err := os.Stat("/tmp/" + t.Slug + ".ysotask.failure")
 	return err == nil
 }
 

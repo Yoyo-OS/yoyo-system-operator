@@ -52,7 +52,7 @@ func GetCommonChecks() *CommonChecks {
 	// CPU temp
 	cChecks.CPUTemp = GetCPUTemp()
 
-	if os.Getenv("VSO_VERBOSE") != "" {
+	if os.Getenv("YSO_VERBOSE") != "" {
 		fmt.Printf("Network: %t\n", cChecks.Network)
 		fmt.Printf("Battery: %t\n", cChecks.Battery)
 		fmt.Printf("Low battery: %t\n", cChecks.LowBattery)

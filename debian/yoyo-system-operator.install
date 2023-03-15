@@ -1,0 +1,6 @@
+config/config.json /etc/yso/
+man/yso.1 /usr/share/man/man1
+man/es/yso.1 /usr/share/man/es/man1
+man/fr/yso.1 /usr/share/man/fr/man1
+polkit/org.yoyoos.yso.pkla /var/lib/polkit-1/localauthority/10-vendor.d/
+polkit/org.yoyoos.yso.policy /usr/share/polkit-1/actions/

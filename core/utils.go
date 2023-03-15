@@ -40,7 +40,7 @@ func SendNotification(title, body string) error {
 	cmd := exec.Command(
 		"notify-send",
 		title, body,
-		"-i", "distributor-logo-vanilla",
+		"-i", "distributor-logo-yoyo",
 	)
 	err := cmd.Run()
 	if err != nil {
@@ -79,7 +79,7 @@ func getRealUser() (string, error) {
 }
 
 // processIsRunning checks if a process is running based on its name
-func processIsRunning(name string, excludeVsoPid bool) bool {
+func processIsRunning(name string, excludeYsoPid bool) bool {
 	cmd := exec.Command("ps", "-A", "-o", "pid,ppid,cmd")
 	out, err := cmd.Output()
 	if err != nil {
@@ -89,9 +89,9 @@ func processIsRunning(name string, excludeVsoPid bool) bool {
 	lines := strings.Split(string(out), "\n")
 	for _, line := range lines {
 		if strings.Contains(line, name) {
-			if excludeVsoPid {
-				vsoPid := strconv.Itoa(os.Getppid())
-				if strings.Contains(line, vsoPid) {
+			if excludeYsoPid {
+				ysoPid := strconv.Itoa(os.Getppid())
+				if strings.Contains(line, ysoPid) {
 					continue
 				}
 			}

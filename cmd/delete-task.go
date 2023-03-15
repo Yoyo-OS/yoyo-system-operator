@@ -5,15 +5,15 @@ package cmd
 		Mirko Brombin <send@mirko.pm>
 		Pietro di Caprio <pietro@fabricators.ltd>
 	Copyright: 2023
-	Description: VSO is a utility which allows you to perform maintenance
-	tasks on your Vanilla OS installation.
+	Description: YSO is a utility which allows you to perform maintenance
+	tasks on your Yoyo OS installation.
 */
 
 import (
 	"fmt"
 
 	"github.com/spf13/cobra"
-	"github.com/vanilla-os/vso/core"
+	"github.com/yoyo-os/yso/core"
 )
 
 func deleteTaskUsage(*cobra.Command) error {
@@ -21,14 +21,14 @@ func deleteTaskUsage(*cobra.Command) error {
   Delete a task
 
 Usage:
-	vso delete-task [flags] [options]
+	yso delete-task [flags] [options]
 
 Flags:
 	--help/-h		show this message
 
 Examples:
-	vso delete-task my-task
-	vso delete-task "my task"
+	yso delete-task my-task
+	yso delete-task "my task"
 `)
 
 	return nil

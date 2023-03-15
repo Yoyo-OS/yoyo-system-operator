@@ -217,9 +217,9 @@ type RawSockaddrVM struct {
 	Cid       uint32
 }
 
-type XVSockPCB struct {
+type XYsockPCB struct {
 	Xv_len           uint32
-	Xv_vsockpp       uint64
+	Xv_ysockpp       uint64
 	Xvp_local_cid    uint32
 	Xvp_local_port   uint32
 	Xvp_remote_cid   uint32
@@ -288,7 +288,7 @@ type XSockbuf struct {
 	Timeo int16
 }
 
-type XVSockPgen struct {
+type XYsockPgen struct {
 	Len   uint32
 	Count uint64
 	Gen   uint64
@@ -374,10 +374,10 @@ const (
 	SizeofSockaddrDatalink = 0x14
 	SizeofSockaddrCtl      = 0x20
 	SizeofSockaddrVM       = 0xc
-	SizeofXvsockpcb        = 0xa8
+	SizeofXysockpcb        = 0xa8
 	SizeofXSocket          = 0x64
 	SizeofXSockbuf         = 0x18
-	SizeofXVSockPgen       = 0x20
+	SizeofXYsockPgen       = 0x20
 	SizeofXucred           = 0x4c
 	SizeofLinger           = 0x8
 	SizeofIovec            = 0x10
